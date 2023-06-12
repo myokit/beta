@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+rm build dist -rf
+rm *.egg-info -rf
+rm tosti/*.so -rf
+rm tosti/__pycache__ -rf
