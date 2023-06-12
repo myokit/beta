@@ -31,7 +31,7 @@ jobs:
 
       - name: Install
         run: |
-          python -m setup.py build install
+          python -m setup.py build
 
       - name: Run unit tests
         run: |
