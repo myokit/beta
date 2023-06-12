@@ -4,23 +4,27 @@
 typedef double my_kind_of_function(double, double);
 
 
-
 static PyObject *
 sim1_run(PyObject *self, PyObject *args)
 {
     size_t addr;
-    my_kind_of_function* f;
+    double a;
+    double b;
     double x;
+    my_kind_of_function* f;
 
-    if (!PyArg_ParseTuple(args, "n", &addr)) {
+    if (!PyArg_ParseTuple(args, "ndd",
+            &addr,
+            &a,
+            &b
+    )) {
+        //PyErr_SetString(PyExc_Exception, "Incorrect input arguments.");
         return NULL;
     }
 
-    printf("Got address %zu\n", addr);
+    //printf("Got address %zu\n", addr);
     f = (my_kind_of_function*)addr;
-
-    x = f(2.0, 10.345);
-
+    x = f(a, b);
     return PyFloat_FromDouble(x);
 }
 
