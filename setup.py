@@ -7,9 +7,6 @@ setup(
 
     version='0.0.1',
 
-    install_requires=[
-    ],
-
     # List of dependencies
     install_requires=[
         'llvmlite',
