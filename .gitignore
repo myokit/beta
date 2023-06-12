@@ -1,12 +1,9 @@
-# Ignore development files
-dev
-
 # Ignore compiled .pyc files
-*.pyc
 __pycache__
 
 # Ignore installation files
 *.egg-info
+build
 
 # Jupyter notebooks
 .ipynb_checkpoints
@@ -20,3 +17,5 @@ env
 
 # Ignore vs code config
 .vscode
+
+*.so
