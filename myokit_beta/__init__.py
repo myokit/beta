@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-This is tosti.
+This is the main module.
 """
 
 from . import _sim

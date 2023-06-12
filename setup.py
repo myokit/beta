@@ -3,12 +3,12 @@
 from setuptools import find_packages, setup, Extension
 
 setup(
-    name='tosti',
+    name='myokit_beta',
 
     version='0.0.1',
 
     # Packages to include
-    packages=find_packages(include=('tosti', 'tosti.*')),
+    packages=find_packages(include=('myokit_beta', 'myokit_beta.*')),
 
     # List of dependencies
     install_requires=[
@@ -17,6 +17,6 @@ setup(
 
     #ext_package = 'tosti',
     ext_modules=[
-        Extension('tosti._sim', ['src/tosti.c']),
+        Extension('myokit_beta._sim.sim1', ['src/sim1.c']),
     ],
 )

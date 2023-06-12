@@ -80,10 +80,10 @@ cfunc = CFUNCTYPE(c_double, c_double, c_double)(func_ptr)
 print(type(func_ptr))
 print(type(cfunc))
 
-import tosti
-print(tosti.hi())
+import myokit_beta
+print(myokit_beta.hi())
 
-import tosti._sim as sim
+import myokit_beta._sim.sim1 as sim
 out = sim.run(func_ptr)
 
 print(out)

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 rm build dist -rf
 rm *.egg-info -rf
-rm tosti/*.so -rf
-rm tosti/__pycache__ -rf
+rm myokit_beta/*.so -rf
+rm myokit_beta/__pycache__ -rf

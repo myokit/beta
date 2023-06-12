@@ -6,7 +6,7 @@ typedef double my_kind_of_function(double, double);
 
 
 static PyObject *
-tosti_run(PyObject *self, PyObject *args)
+sim1_run(PyObject *self, PyObject *args)
 {
     size_t addr;
     my_kind_of_function* f;
@@ -26,24 +26,24 @@ tosti_run(PyObject *self, PyObject *args)
 
 
 
-static PyMethodDef TostiMethods[] = {
-    {"run", tosti_run, METH_VARARGS, "Run a runny thing."},
+static PyMethodDef Sim1Methods[] = {
+    {"run", sim1_run, METH_VARARGS, "Run a runny thing."},
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
 
 
-static struct PyModuleDef tostimodule = {
+static struct PyModuleDef sim1_module = {
     PyModuleDef_HEAD_INIT,
-    "_sim",   /* name of module */
-    "This module is a toasti", /* module documentation, may be NULL */
+    "sim1",   /* name of module */
+    "Performs a sumulation", /* module documentation, may be NULL */
     -1,       /* size of per-interpreter state of the module,
                  or -1 if the module keeps state in global variables. */
-    TostiMethods
+    Sim1Methods
 };
 
 
 PyMODINIT_FUNC
-PyInit__sim(void)
+PyInit_sim1(void)
 {
-    return PyModule_Create(&tostimodule);
+    return PyModule_Create(&sim1_module);
 }
