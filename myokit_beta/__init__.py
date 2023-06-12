@@ -7,8 +7,8 @@ from . import _sim
 
 
 def hi():
-    """ Prints hello. """
-    print('Hello!')
+    """ Returns hello. """
+    return 'Hello!'
 
 
 def sum(a=10.345, b=2):
@@ -81,3 +81,4 @@ def sum(a=10.345, b=2):
     func_ptr = engine.get_function_address("fpadd")
 
     return sim1.run(func_ptr, a, b)
+
