@@ -4,6 +4,7 @@ __pycache__
 # Ignore installation files
 *.egg-info
 build
+dist
 
 # Jupyter notebooks
 .ipynb_checkpoints
