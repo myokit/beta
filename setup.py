@@ -12,10 +12,8 @@ setup(
         'llvmlite',
     ],
 
+    ext_package = 'tosti',
     ext_modules=[
-        Extension(
-            name="tosti",
-            sources=['src/tosti.c'],
-        ),
+        Extension('_sim', ['src/tosti.c']),
     ],
 )

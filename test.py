@@ -81,7 +81,10 @@ print(type(func_ptr))
 print(type(cfunc))
 
 import tosti
-out = tosti.run(func_ptr)
+print(tosti.hi())
+
+import tosti._sim as sim
+out = sim.run(func_ptr)
 
 print(out)
 

@@ -34,7 +34,7 @@ static PyMethodDef TostiMethods[] = {
 
 static struct PyModuleDef tostimodule = {
     PyModuleDef_HEAD_INIT,
-    "tosti",   /* name of module */
+    "tosti._sim",   /* name of module */
     "This module is a toasti", /* module documentation, may be NULL */
     -1,       /* size of per-interpreter state of the module,
                  or -1 if the module keeps state in global variables. */
@@ -43,7 +43,7 @@ static struct PyModuleDef tostimodule = {
 
 
 PyMODINIT_FUNC
-PyInit_tosti(void)
+PyInit__sim(void)
 {
     return PyModule_Create(&tostimodule);
 }
