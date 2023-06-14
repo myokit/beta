@@ -5,7 +5,7 @@ from setuptools import find_packages, setup, Extension
 setup(
     name='myokit_beta',
 
-    version='0.0.1',
+    version='0.0.2',
 
     # Packages to include
     packages=find_packages(include=('myokit_beta', 'myokit_beta.*')),
