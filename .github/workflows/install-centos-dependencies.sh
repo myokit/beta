@@ -1,4 +1,4 @@
-#set -ev
+set -ev
 
 # Install OpenCL (CPU) runtime
 # https://www.intel.com/content/www/us/en/developer/articles/technical/intel-cpu-runtime-for-opencl-applications-with-sycl-support.html
@@ -16,7 +16,5 @@
 #apt-get install -y opencl-headers ocl-icd-opencl-dev;
 
 # Install sundials
-yum clean all;
-yum list all | grep sundials;
-yum install -y sundials-devel --disablerepo=epel;
+yum install -y sundials-devel;
 
