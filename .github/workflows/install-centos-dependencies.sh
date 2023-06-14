@@ -1,5 +1,4 @@
-#!/bin/bash
-set -ev
+#set -ev
 
 # Install OpenCL (CPU) runtime
 # https://www.intel.com/content/www/us/en/developer/articles/technical/intel-cpu-runtime-for-opencl-applications-with-sycl-support.html

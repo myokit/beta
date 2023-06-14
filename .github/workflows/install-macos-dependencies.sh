@@ -1,5 +1,4 @@
-#!/bin/bash
-set -ev
+#set -ev
 
 # Install sundials
 export HOMEBREW_NO_AUTO_UPDATE=1;
