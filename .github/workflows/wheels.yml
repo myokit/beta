@@ -13,7 +13,8 @@ jobs:
   build-and-test:
     name: Build wheel for ${{ matrix.python }}-${{ matrix.platform_id }}
     runs-on: ${{ matrix.os }}
-    if: 'github.repository == 'myokit/beta'
+    if: github.repository == 'myokit/beta'
+    if: github.event.pull_request.draft == false
 
     strategy:
       #fail-fast: false  # Enable to continue if others fail
