@@ -18,8 +18,8 @@ elif system == 'Windows':
     sundials_lib = ['./lib/sundials-win-vs/lib']
     sundials_inc = ['./lib/sundials-win-vs/include']
 else:
-    sundials_lib = ['/usr/local/lib']
-    sundials_inc = ['/usr/local/include']
+    sundials_lib = ['/usr/lib64']
+    sundials_inc = ['/usr/include']
 
 
 
