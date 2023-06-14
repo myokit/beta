@@ -12,7 +12,7 @@ setup(
     name='myokit_beta',
 
     # Version
-    version='0.0.2',
+    version='0.0.3',
 
     # Description
     description='Trying out distribution of wheels etc and llvm',
@@ -21,6 +21,9 @@ setup(
 
     # Packages to include
     packages=find_packages(include=('myokit_beta', 'myokit_beta.*')),
+
+    # Supported Python versions
+    python_requires='>=3.7',
 
     # List of dependencies
     install_requires=[
