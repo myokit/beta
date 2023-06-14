@@ -18,5 +18,5 @@
 # Install sundials
 yum clean all;
 yum list all | grep sundials;
-yum install -y sundials-devel;
+yum install -y sundials-devel --disablerepo=epel/x86_64;
 
