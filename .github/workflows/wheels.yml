@@ -101,14 +101,12 @@ jobs:
     environment:
       name: pypi
       url: https://test.pypi.org/p/myokit-beta
-    permissions:
-      id-token: write
     steps:
       - uses: actions/download-artifact@v3
         with:
           name: artifact
           path: dist
-      - uses: pypa/gh-action-pypi-publish@v1
+      - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
           password: ${{ secrets.test_pypi_token }}
