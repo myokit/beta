@@ -9,7 +9,8 @@ on:
       - '**'
 
 jobs:
-  build_wheels_and_test:
+
+  build-and-test:
     name: Build wheel for ${{ matrix.python }}-${{ matrix.platform_id }}
     runs-on: ${{ matrix.os }}
     if: 'github.repository == 'myokit/beta'
