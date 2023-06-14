@@ -4,6 +4,7 @@ This is the main module.
 """
 
 from . import _sim
+from ._cvodes import Simulation
 
 
 def hi():
@@ -80,5 +81,16 @@ def sum(a=10.345, b=2):
     # Look up the function pointer (a Python int)
     func_ptr = engine.get_function_address("fpadd")
 
-    return sim1.run(func_ptr, a, b)
+    return _sim.sim1.run(func_ptr, a, b)
 
+
+def sim(plot=False):
+    import myokit
+    p = myokit.load_protocol('example')
+    s = Simulation(p)
+    d = s.run(500)
+
+    import matplotlib.pyplot as plt
+    plt.figure()
+    plt.plot(d.time(), d['membrane.V'])
+    plt.show()
