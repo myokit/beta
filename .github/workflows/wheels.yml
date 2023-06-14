@@ -24,6 +24,7 @@ jobs:
           - os: ubuntu-latest
             build: cp311-manylinux_x86_64
             manylinux: manylinux2014
+            deps: install-ubuntu-dependencies.sh
           #- os: ubuntu-latest
           #  build: cp310-manylinux_x86_64
           #  manylinux: manylinux2014
@@ -36,6 +37,7 @@ jobs:
 
           - os: macos-latest
             build: cp311-macosx_x86_64
+            deps: install-macos-dependencies.sh
           #- os: macos-latest
           #  build: cp310-macosx_x86_64
           #- os: macos-latest
@@ -60,6 +62,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
+      - name: Install dependencies
+        run: ${{ deps }}
 
       - name: Build wheels and test
         uses: pypa/cibuildwheel@v2.13.1
