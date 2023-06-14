@@ -1,35 +1,83 @@
-name: Build wheels
-
-on: [push, pull_request]
+name: Build wheels and test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - '**'
 
 jobs:
-  build_wheels:
-    name: Build wheels on ${{ matrix.os }}
+  build_wheels_and_test:
+    name: Build wheel for ${{ matrix.python }}-${{ matrix.platform_id }}
     runs-on: ${{ matrix.os }}
+    if: 'github.repository == 'myokit/beta'
+
     strategy:
+      #fail-fast: false  # Enable to continue if others fail
       matrix:
-        os: ['ubuntu-20.04', 'windows-2019', 'macOS-11']
+        include:
+          - os: ubuntu-latest
+            python: cp38
+            platform_id: manylinux_x86_64
+          - os: ubuntu-latest
+            python: cp39
+            platform_id: manylinux_x86_64
+          - os: ubuntu-latest
+            python: cp310
+            platform_id: manylinux_x86_64
+          - os: ubuntu-latest
+            python: cp311
+            platform_id: manylinux_x86_64
+
+          - os: macos-latest
+            python: cp38
+            platform_id: macosx_x86_64
+          - os: macos-latest
+            python: cp39
+            platform_id: macosx_x86_64
+          - os: macos-latest
+            python: cp310
+            platform_id: macosx_x86_64
+          - os: macos-latest
+            python: cp311
+            platform_id: macosx_x86_64
+
+          - os: windows-2019  # 3.8 needs windows-2019
+            python: cp38
+            platform_id: win_amd64
+          - os: windows-latest
+            python: cp39
+            platform_id: win_amd64
+          - os: windows-latest
+            python: cp310
+            platform_id: win_amd64
+          - os: windows-latest
+            python: cp311
+            platform_id: win_amd64
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out
+        uses: actions/checkout@v3
 
-      # Used to host cibuildwheel
-      - name: Configure Python ${{ matrix.python-version }}
+      - name: Set up Python for cibuildwheel
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          #cache: 'pip'
-          #cache-dependency-path: setup.py
 
       - name: Install cibuildwheel
         run: python -m pip install cibuildwheel==2.13.1
 
-      - name: Build wheels
+      - name: Build wheels and test
         run: python -m cibuildwheel --output-dir wheelhouse
-        # to supply options, put them in 'env', like:
-        # env:
-        #   CIBW_SOME_OPTION: value
+          env:
+            #CIBW_TEST_COMMAND: python {package}/tests_in_the_package
+            CIBW_TEST_COMMAND: python {project}/test/test.py
+            CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
 
-      - uses: actions/upload-artifact@v3
+      - name: Store artifacts
+        uses: actions/upload-artifact@v3
         with:
-          path: ./wheelhouse/*.whl
+          path: wheelhouse/*.whl
+
