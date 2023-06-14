@@ -11,16 +11,34 @@ with open('README.md') as f:
 
 # Platform differences
 system = platform.system()
-if system == 'Darwin':
-    sundials_lib = ['/opt/homebrew/lib']
-    sundials_inc = ['/opt/homebrew/include']
-elif system == 'Windows':
+if system == 'Windows':
     sundials_lib = ['./lib/sundials-win-vs/lib']
     sundials_inc = ['./lib/sundials-win-vs/include']
+if system == 'Darwin':
+    sundials_lib = [
+        '/usr/local/lib',
+        '/usr/local/lib64',
+        '/opt/local/lib',
+        '/opt/local/lib64',
+        '/opt/homebrew/lib',
+        '/opt/homebrew/lib64',
+    ]
+    sundials_inc = [
+        '/usr/local/include',
+        '/opt/local/include',
+        '/opt/homebrew/include',
+    ]
 else:
-    sundials_lib = ['/usr/lib64']
-    sundials_inc = ['/usr/include']
-
+    sundials_lib = [
+        #'/usr/local/lib',
+        #'/usr/local/lib64',
+        #'/opt/local/lib',
+        #'/opt/local/lib64',
+    ]
+    sundials_inc = [
+        '/usr/local/include',
+        '/opt/local/include',
+    ]
 
 
 # CVODES Simulation

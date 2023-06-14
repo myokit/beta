@@ -63,14 +63,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install linux dependencies
-        if: matrix.os == 'ubuntu-latest'
-        run: sudo .github/workflows/install-ubuntu-dependencies.sh
-
-      - name: Install macos dependencies
-        if: matrix.os == 'macos-latest'
-        run: .github/workflows/install-macos-dependencies.sh
-
       - name: Build wheels and test
         uses: pypa/cibuildwheel@v2.13.1
         env:
@@ -80,6 +72,9 @@ jobs:
           CIBW_TEST_COMMAND: python {project}/test/test.py
           CIBW_MANYLINUX_X86_64_IMAGE: ${{ matrix.manylinux }}
           #CIBW_MANYLINUX_I686_IMAGE: ${{ matrix.manylinux }}
+          #CIBW_BEFORE_ALL_WINDOWS
+          CIBW_BEFORE_ALL_MACOS: .github/workflows/install-macos-dependencies.sh
+          CIBW_BEFORE_ALL_LINUX: sudo .github/workflows/install-ubuntu-dependencies.sh
 
       - name: Store artifacts
         uses: actions/upload-artifact@v3
