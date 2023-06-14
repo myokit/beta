@@ -24,7 +24,7 @@ jobs:
           - os: ubuntu-latest
             build: cp311-manylinux_x86_64
             manylinux: manylinux2014
-            deps: .github/workflows/install-ubuntu-dependencies.sh
+            deps: sudo .github/workflows/install-ubuntu-dependencies.sh
           #- os: ubuntu-latest
           #  build: cp310-manylinux_x86_64
           #  manylinux: manylinux2014
@@ -37,7 +37,7 @@ jobs:
 
           - os: macos-latest
             build: cp311-macosx_x86_64
-            deps: .github/workflows/install-macos-dependencies.sh
+            deps: sudo .github/workflows/install-macos-dependencies.sh
           #- os: macos-latest
           #  build: cp310-macosx_x86_64
           #- os: macos-latest
@@ -46,7 +46,7 @@ jobs:
           #  build: cp38-macosx_x86_64
 
           - os: windows-latest
-            build: cp311-win_amd64
+            build: sudo cp311-win_amd64
           #- os: windows-latest
           #  build: cp310-win_amd64
           #- os: windows-latest
@@ -63,8 +63,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: ${{ matrix.deps }}
+      - name: Install linux dependencies
+        if: ${{ matrix.os }} == ubuntu-latest
+        run: sudo .github/workflows/install-ubuntu-dependencies.sh
+
+      - name: Install macos dependencies
+        if: ${{ matrix.os }} == macos-latest
+        run: sudo .github/workflows/install-macos-dependencies.sh
 
       - name: Build wheels and test
         uses: pypa/cibuildwheel@v2.13.1
