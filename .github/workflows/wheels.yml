@@ -74,7 +74,7 @@ jobs:
           #CIBW_MANYLINUX_I686_IMAGE: ${{ matrix.manylinux }}
           #CIBW_BEFORE_ALL_WINDOWS
           CIBW_BEFORE_ALL_MACOS: .github/workflows/install-macos-dependencies.sh
-          CIBW_BEFORE_ALL_LINUX: sudo .github/workflows/install-ubuntu-dependencies.sh
+          CIBW_BEFORE_ALL_LINUX: .github/workflows/install-centos-dependencies.sh
 
       - name: Store artifacts
         uses: actions/upload-artifact@v3

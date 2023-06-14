@@ -17,5 +17,5 @@ set -ev
 #apt-get install -y opencl-headers ocl-icd-opencl-dev;
 
 # Install sundials
-apt-get install -y libsundials-dev;
+yum install -y sundials-devel;
 
