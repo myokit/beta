@@ -69,7 +69,7 @@ jobs:
 
       - name: Install macos dependencies
         if: matrix.os == 'macos-latest'
-        run: sudo .github/workflows/install-macos-dependencies.sh
+        run: .github/workflows/install-macos-dependencies.sh
 
       - name: Build wheels and test
         uses: pypa/cibuildwheel@v2.13.1
