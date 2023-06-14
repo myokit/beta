@@ -64,11 +64,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install linux dependencies
-        if: ${{ matrix.os }} == ubuntu-latest
+        if: ${{ matrix.os }} == 'ubuntu-latest'
         run: sudo .github/workflows/install-ubuntu-dependencies.sh
 
       - name: Install macos dependencies
-        if: ${{ matrix.os }} == macos-latest
+        if: ${{ matrix.os }} == 'macos-latest'
         run: sudo .github/workflows/install-macos-dependencies.sh
 
       - name: Build wheels and test
