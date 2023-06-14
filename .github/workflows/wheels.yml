@@ -73,10 +73,10 @@ jobs:
 
       - name: Build wheels and test
         run: python -m cibuildwheel --output-dir wheelhouse
-          env:
-            #CIBW_TEST_COMMAND: python {package}/tests_in_the_package
-            CIBW_TEST_COMMAND: python {project}/test/test.py
-            CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
+        env:
+          #CIBW_TEST_COMMAND: python {package}/tests_in_the_package
+          CIBW_TEST_COMMAND: python {project}/test/test.py
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
 
       - name: Store artifacts
         uses: actions/upload-artifact@v3
