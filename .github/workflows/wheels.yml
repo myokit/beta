@@ -7,7 +7,9 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - '**'
-
+  release:
+    types:
+      - published
 jobs:
 
   build-wheels:
@@ -78,6 +80,7 @@ jobs:
   build-sdist:
     name: Build source distribution
     runs-on: ubuntu-latest
+    if: github.event_name == 'release'
     steps:
       - name: Check out
         uses: actions/checkout@v3
@@ -93,7 +96,7 @@ jobs:
   upload_pypi:
     needs: [build-wheels, build-sdist]
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release'
     steps:
       - uses: actions/download-artifact@v3
         with:
