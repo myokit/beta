@@ -12,7 +12,7 @@ setup(
     name='myokit_beta',
 
     # Version
-    version='0.0.3',
+    version='0.0.4',
 
     # Description
     description='Trying out distribution of wheels etc and llvm',
@@ -23,11 +23,11 @@ setup(
     packages=find_packages(include=('myokit_beta', 'myokit_beta.*')),
 
     # Supported Python versions
-    python_requires='>=3.7',
+    python_requires='>=3.8',
 
     # List of dependencies
     install_requires=[
-        'llvmlite',
+        'llvmlite>=0.37',
     ],
 
     #ext_package = 'tosti',
