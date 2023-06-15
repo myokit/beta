@@ -18,7 +18,7 @@ jobs:
     if: (github.repository == 'myokit/beta') && !github.event.pull_request.draft
 
     strategy:
-      #fail-fast: false  # Continue even if other wheels fail
+      fail-fast: false  # Continue even if other wheels fail
       matrix:
         include:
           - os: ubuntu-latest
