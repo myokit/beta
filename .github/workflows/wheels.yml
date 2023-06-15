@@ -56,6 +56,12 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
+      - name: Remove windows binaries
+        if: !startsWith(${{ matrix.os }}, 'windows')
+        run: |
+            rm {project}/myokit_beta/_bin/sundials-win-vs -rf
+
+
       - name: Set up Python for cibuildwheel
         uses: actions/setup-python@v4
         with:
