@@ -20,6 +20,9 @@ finally:
 # Binary data files
 DIR_DATA = os.path.join(DIR_MYOKIT, '_bin')
 
+
+print('STARTING UP', platform.system())
+
 # Point Windows to included DLLs
 if platform.system() == 'Windows':  # pragma: no linux cover
     libd = [os.path.join(DIR_DATA, 'sundials-win-vs')]
@@ -72,7 +75,6 @@ def sum(a=10.345, b=2):
     """ Does a sum. """
 
     from llvmlite import ir
-    from ._sim import sim1
 
     import llvmlite.binding as llvm
 
