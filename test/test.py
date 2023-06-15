@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-#import myokit_beta
+print('GOING TO IMPORT')
+
+import myokit_beta
 
 #print(myokit_beta.hi())
 #print(myokit_beta.sum())
@@ -8,4 +10,3 @@
 
 #myokit_beta.sim(True)
 
-print('NOT TESTING ANYTHING')
