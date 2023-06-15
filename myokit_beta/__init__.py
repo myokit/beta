@@ -62,8 +62,8 @@ del os, inspect, platform
 
 
 
-from . import _sim
 from ._cvodes import Simulation
+from ._sim import sim1 as _sim1
 
 
 
@@ -143,21 +143,22 @@ def sum(a=10.345, b=2):
     # Look up the function pointer (a Python int)
     func_ptr = engine.get_function_address("fpadd")
 
-    import myokit_beta._sim.sim1
-    return _sim.sim1.run(func_ptr, a, b)
+    return _sim1.run(func_ptr, a, b)
 
 
 def sim(plot=False):
 
-    print('NOT GOING TO IMPORT MYOKIT')
-    #import myokit
-    #p = myokit.load_protocol('example')
+    print('GOING TO IMPORT MYOKIT')
+    import myokit
+    p = myokit.load_protocol('example')
 
-    print('DONE')
+    print('GOING TO LOAD SIMULATION')
 
-    '''
     s = Simulation(p)
+
+    print('GOING TO RUN SIMULATION')
     d = s.run(500)
+    '''
 
     if plot:
         import matplotlib.pyplot as plt
@@ -165,3 +166,5 @@ def sim(plot=False):
         plt.plot(d.time(), d['membrane.V'])
         plt.show()
     '''
+
+    print('DONE')
