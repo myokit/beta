@@ -7,10 +7,11 @@ print('GOING TO SAY HI')
 
 print(myokit_beta.hi())
 
-print('SAID HI')
-#print(myokit_beta.sum())
+print('GOING TO DO SUM')
 
-#assert myokit_beta.sum() == 12.345
+print(myokit_beta.sum())
+
+assert myokit_beta.sum() == 12.345
 
 #myokit_beta.sim(True)
 
