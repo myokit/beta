@@ -59,7 +59,7 @@ jobs:
       - name: Remove windows binaries
         if: (!startsWith(${{ matrix.os }}, 'windows'))
         run: |
-            rm {project}/myokit_beta/_bin/sundials-win-vs -rf
+            rm myokit_beta/_bin/sundials-win-vs -rf
 
 
       - name: Set up Python for cibuildwheel
