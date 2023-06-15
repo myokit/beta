@@ -21,9 +21,9 @@ jobs:
       fail-fast: false  # Continue even if other wheels fail
       matrix:
         include:
-          #- os: ubuntu-latest
-          #  build: cp311-manylinux_x86_64
-          #  manylinux: manylinux2014
+          - os: ubuntu-latest
+            build: cp311-manylinux_x86_64
+            manylinux: manylinux2014
           #- os: ubuntu-latest
           #  build: cp310-manylinux_x86_64
           #  manylinux: manylinux2014
@@ -43,8 +43,8 @@ jobs:
           #- os: macos-latest
           #  build: cp38-macosx_x86_64
 
-          #- os: windows-latest
-          #  build: cp311-win_amd64
+          - os: windows-latest
+            build: cp311-win_amd64
           #- os: windows-latest
           #  build: cp310-win_amd64
           #- os: windows-latest
@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Remove windows binaries
-        if: !startsWith(${{ matrix.os }}, 'windows')
+        if: !(startsWith(${{ matrix.os }}, 'windows'))
         run: |
             rm {project}/myokit_beta/_bin/sundials-win-vs -rf
 
