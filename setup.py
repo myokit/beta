@@ -69,9 +69,9 @@ setup(
     long_description_content_type='text/markdown',
 
     # Packages to include
-    packages=find_packages(include=('myokit_beta', 'myokit_beta.*')),
+    packages=find_namespace_packages(),
 
-    # Include non-python files (via MANIFEST.in)
+    # Include non-python files
     include_package_data=True,
 
     # Supported Python versions
