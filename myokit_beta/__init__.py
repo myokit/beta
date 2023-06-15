@@ -35,8 +35,11 @@ if platform.system() == 'Windows':  # pragma: no linux cover
         for path in libd:
             if os.path.isdir(path):
                 os.add_dll_directory(path)
+                print('ADDED', path)
     except AttributeError:
         pass
+
+    print(libd, os.environ['path'])
 
     del libd, path
 
