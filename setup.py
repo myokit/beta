@@ -12,8 +12,8 @@ with open('README.md') as f:
 # Platform differences
 system = platform.system()
 if system == 'Windows':
-    sundials_lib = ['./lib/sundials-win-vs/lib']
-    sundials_inc = ['./lib/sundials-win-vs/include']
+    sundials_lib = ['./myokit_beta/_bin/sundials-win-vs']
+    sundials_inc = ['./include/sundials-win-vs']
 elif system == 'Darwin':
     sundials_lib = [
         '/usr/local/lib',
@@ -43,7 +43,7 @@ else:
 
 # CVODES Simulation
 sim_libraries = ['sundials_cvodes', 'sundials_nvecserial']
-if platform.system() != 'Windows':
+if system != 'Windows':
     sim_libraries.append('m')
 cvodes_sim = Extension(
     'myokit_beta._sim.sim1',
@@ -70,6 +70,9 @@ setup(
 
     # Packages to include
     packages=find_packages(include=('myokit_beta', 'myokit_beta.*')),
+
+    # Include non-python files (via MANIFEST.in)
+    include_package_data=True,
 
     # Supported Python versions
     python_requires='>=3.8',

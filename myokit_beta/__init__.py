@@ -3,8 +3,56 @@
 This is the main module.
 """
 
+#
+# Paths
+#
+
+# Myokit root
+import os, inspect, platform  # noqa
+try:
+    frame = inspect.currentframe()
+    DIR_MYOKIT = os.path.abspath(os.path.dirname(inspect.getfile(frame)))
+finally:
+    # Always manually delete frame
+    # https://docs.python.org/2/library/inspect.html#the-interpreter-stack
+    del frame
+
+# Binary data files
+DIR_DATA = os.path.join(DIR_MYOKIT, '_bin')
+
+# Point Windows to included DLLs
+if platform.system() == 'Windows':  # pragma: no linux cover
+    libd = [os.path.join(DIR_DATA, 'sundials-win-vs')]
+
+    # Add to path
+    path = os.environ.get('path', '')
+    if path is None:
+        path = ''
+    os.environ['path'] = os.pathsep.join([path] + libd)
+
+    # Add DLL directories (3.8+)
+    try:
+        for path in libd:
+            if os.path.isdir(path):
+                os.add_dll_directory(path)
+    except AttributeError:
+        pass
+
+    del libd, path
+
+# Don't expose standard libraries as part of Myokit
+del os, inspect, platform
+
+
+
+
+
 from . import _sim
 from ._cvodes import Simulation
+
+
+
+
 
 
 def hi():
