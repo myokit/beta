@@ -40,6 +40,11 @@ if platform.system() == 'Windows':  # pragma: no linux cover
         pass
 
     print(libd, os.environ['path'])
+    print('x' * 50)
+    print(os.listdir(libd[0]))
+    print('y' * 50)
+    print(os.listdir(DIR_DATA))
+    print('z' * 50)
 
     del libd, path
 
