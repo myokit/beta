@@ -22,6 +22,8 @@ DIR_DATA = os.path.join(DIR_MYOKIT, '_bin')
 
 
 print('STARTING UP', platform.system())
+print('I AM', DIR_DATA)
+print(os.path.exists(DIR_DATA))
 
 # Point Windows to included DLLs
 if platform.system() == 'Windows':  # pragma: no linux cover
@@ -44,9 +46,9 @@ if platform.system() == 'Windows':  # pragma: no linux cover
 
     print(libd, os.environ['path'])
     print('x' * 50)
-    print(os.listdir(libd[0]))
-    print('y' * 50)
     print(os.listdir(DIR_DATA))
+    print('y' * 50)
+    print(os.listdir(libd[0]))
     print('z' * 50)
 
     del libd, path
@@ -139,6 +141,7 @@ def sum(a=10.345, b=2):
     # Look up the function pointer (a Python int)
     func_ptr = engine.get_function_address("fpadd")
 
+    import myokit_beta._sim.sim1
     return _sim.sim1.run(func_ptr, a, b)
 
 

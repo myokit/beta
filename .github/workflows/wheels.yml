@@ -44,7 +44,7 @@ jobs:
           #  build: cp38-macosx_x86_64
 
           - os: windows-latest
-            build: sudo cp311-win_amd64
+            build: cp311-win_amd64
           #- os: windows-latest
           #  build: cp310-win_amd64
           #- os: windows-latest
