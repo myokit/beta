@@ -14,7 +14,7 @@ system = platform.system()
 if system == 'Windows':
     sundials_lib = ['./lib/sundials-win-vs/lib']
     sundials_inc = ['./lib/sundials-win-vs/include']
-if system == 'Darwin':
+elif system == 'Darwin':
     sundials_lib = [
         '/usr/local/lib',
         '/usr/local/lib64',
