@@ -24,33 +24,33 @@ jobs:
           - os: ubuntu-latest
             build: cp311-manylinux_x86_64
             manylinux: manylinux2014
-          #- os: ubuntu-latest
-          #  build: cp310-manylinux_x86_64
-          #  manylinux: manylinux2014
-          #- os: ubuntu-latest
-          #  build: cp39-manylinux_x86_64
-          #  manylinux: manylinux2014
-          #- os: ubuntu-latest
-          #  build: cp38-manylinux_x86_64
-          #  manylinux: manylinux2014
+          - os: ubuntu-latest
+            build: cp310-manylinux_x86_64
+            manylinux: manylinux2014
+          - os: ubuntu-latest
+            build: cp39-manylinux_x86_64
+            manylinux: manylinux2014
+          - os: ubuntu-latest
+            build: cp38-manylinux_x86_64
+            manylinux: manylinux2014
 
           - os: macos-latest
             build: cp311-macosx_x86_64
-          #- os: macos-latest
-          #  build: cp310-macosx_x86_64
-          #- os: macos-latest
-          #  build: cp39-macosx_x86_64
-          #- os: macos-latest
-          #  build: cp38-macosx_x86_64
+          - os: macos-latest
+            build: cp310-macosx_x86_64
+          - os: macos-latest
+            build: cp39-macosx_x86_64
+          - os: macos-latest
+            build: cp38-macosx_x86_64
 
           - os: windows-latest
             build: cp311-win_amd64
-          #- os: windows-latest
-          #  build: cp310-win_amd64
-          #- os: windows-latest
-          #  build: cp39-win_amd64
-          #- os: windows-2019        # 3.8 needs windows-2019
-          #  build: cp38-win_amd64
+          - os: windows-latest
+            build: cp310-win_amd64
+          - os: windows-latest
+            build: cp39-win_amd64
+          - os: windows-2019        # 3.8 needs windows-2019
+            build: cp38-win_amd64
 
     steps:
       - name: Check out
