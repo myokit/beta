@@ -24,6 +24,8 @@ DIR_DATA = os.path.join(DIR_MYOKIT, '_bin')
 print('STARTING UP', platform.system())
 print('I AM', DIR_DATA)
 print(os.path.exists(DIR_DATA))
+if os.path.exists(DIR_DATA):
+    print(os.listdir(DIR_DATA))
 
 # Point Windows to included DLLs
 if platform.system() == 'Windows':  # pragma: no linux cover
