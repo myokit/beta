@@ -149,9 +149,9 @@ def sum(a=10.345, b=2):
 
 def sim(plot=False):
 
-    print('GOING TO IMPORT MYOKIT')
-    import myokit
-    p = myokit.load_protocol('example')
+    print('NOT GOING TO IMPORT MYOKIT')
+    #import myokit
+    #p = myokit.load_protocol('example')
 
     print('DONE')
 
