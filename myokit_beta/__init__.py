@@ -148,23 +148,15 @@ def sum(a=10.345, b=2):
 
 def sim(plot=False):
 
-    print('GOING TO IMPORT MYOKIT')
     import myokit
     p = myokit.load_protocol('example')
 
-    print('GOING TO LOAD SIMULATION')
-
     s = Simulation(p)
-
-    print('GOING TO RUN SIMULATION')
     d = s.run(500)
-    '''
 
     if plot:
         import matplotlib.pyplot as plt
         plt.figure()
         plt.plot(d.time(), d['membrane.V'])
         plt.show()
-    '''
 
-    print('DONE')
