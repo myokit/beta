@@ -18,18 +18,22 @@ finally:
     del frame
 
 # Binary data files
-DIR_DATA = os.path.join(DIR_MYOKIT, '_bin')
+DIR_WIN = os.path.join(DIR_MYOKIT, '_win')
 
 
 print('STARTING UP', platform.system())
-print('I AM', DIR_DATA)
-print(os.path.exists(DIR_DATA))
-if os.path.exists(DIR_DATA):
-    print(os.listdir(DIR_DATA))
+print('WIN DATA', DIR_WIN)
+print(os.path.exists(DIR_WIN))
+if os.path.exists(DIR_WIN):
+    print(os.listdir(DIR_WIN))
+    print('Has libs: ', os.path.exists(
+        os.path.join(DIR_WIN, 'sundials-vs', 'lib')))
+    print('Has headers: ', os.path.exists(
+        os.path.join(DIR_WIN, 'sundials-vs', 'inc')))
 
 # Point Windows to included DLLs
 if platform.system() == 'Windows':  # pragma: no linux cover
-    libd = [os.path.join(DIR_DATA, 'sundials-win-vs')]
+    libd = [os.path.join(DIR_WIN, 'sundials-vs')]
 
     # Add to path
     path = os.environ.get('path', '')
