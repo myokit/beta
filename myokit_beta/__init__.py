@@ -62,9 +62,10 @@ del os, inspect, platform
 
 
 
-from ._cvodes import Simulation
-from ._sim import sim1 as _sim1
-
+from ._sim import (
+    _cvodessim_ext,
+    Simulation,
+)
 
 
 
@@ -143,7 +144,7 @@ def sum(a=10.345, b=2):
     # Look up the function pointer (a Python int)
     func_ptr = engine.get_function_address("fpadd")
 
-    return _sim1.run(func_ptr, a, b)
+    return _cvodessim_ext.run(func_ptr, a, b)
 
 
 def sim(plot=False):

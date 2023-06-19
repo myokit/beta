@@ -149,6 +149,7 @@ class Simulation:
 
     def __init__(self, protocol=None, sensitivities=None, path=None):
         super().__init__()
+        self._sim = myokit_beta._sim._cvodessim_ext
 
         # Set model
         self._model = myokit.load_model('example')
@@ -180,7 +181,7 @@ class Simulation:
         del(cmodel)
 
 
-        self._sim = myokit_beta._sim.sim1
+
 
         # Get mapping from variables to C variable names as used in model.h
         labels = {

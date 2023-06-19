@@ -3290,7 +3290,7 @@ sim1_run(PyObject *self, PyObject *args)
 
 
 
-static PyMethodDef Sim1Methods[] = {
+static PyMethodDef CVODESSimMethods[] = {
     {"run", sim1_run, METH_VARARGS, "Run a runny thing."},
     {"sim_init", sim_init, METH_VARARGS, "Initialize the simulation."},
     {"sim_step", sim_step, METH_VARARGS, "Perform the next step in the simulation."},
@@ -3305,18 +3305,18 @@ static PyMethodDef Sim1Methods[] = {
 };
 
 
-static struct PyModuleDef sim1_module = {
+static struct PyModuleDef cvodessim_module = {
     PyModuleDef_HEAD_INIT,
-    "sim1",   /* name of module */
+    "_cvodessim_ext",   /* name of module */
     "Performs a sumulation", /* module documentation, may be NULL */
     -1,       /* size of per-interpreter state of the module,
                  or -1 if the module keeps state in global variables. */
-    Sim1Methods
+    CVODESSimMethods
 };
 
 
 PyMODINIT_FUNC
-PyInit_sim1(void)
+PyInit__cvodessim_ext(void)
 {
-    return PyModule_Create(&sim1_module);
+    return PyModule_Create(&cvodessim_module);
 }
