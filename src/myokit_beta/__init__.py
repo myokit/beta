@@ -33,7 +33,7 @@ if os.path.exists(DIR_WIN):
 
 # Point Windows to included DLLs
 if platform.system() == 'Windows':  # pragma: no linux cover
-    libd = [os.path.join(DIR_WIN, 'sundials-vs')]
+    libd = [os.path.join(DIR_WIN, 'sundials-vs', 'lib')]
 
     # Add to path
     path = os.environ.get('path', '')
@@ -52,7 +52,7 @@ if platform.system() == 'Windows':  # pragma: no linux cover
 
     print(libd, os.environ['path'])
     print('x' * 50)
-    print(os.listdir(DIR_DATA))
+    print(os.listdir(DIR_WIN))
     print('y' * 50)
     print(os.listdir(libd[0]))
     print('z' * 50)
