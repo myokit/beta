@@ -75,7 +75,7 @@ jobs:
           #CIBW_MANYLINUX_I686_IMAGE: ${{ matrix.manylinux }}
           #CIBW_ARCHS_MACOS: "x86_64 arm64"
           #CIBW_TEST_COMMAND: python {package}/tests_in_the_package
-          CIBW_TEST_COMMAND: python {project}/test/test.py
+          CIBW_TEST_COMMAND: python {project}/test.py
           #CIBW_BEFORE_ALL_WINDOWS
           CIBW_BEFORE_ALL_MACOS: sh .github/workflows/install-macos-dependencies.sh
           CIBW_BEFORE_ALL_LINUX: sh .github/workflows/install-centos-dependencies.sh
