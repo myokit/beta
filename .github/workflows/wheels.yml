@@ -35,7 +35,7 @@ jobs:
           #  manylinux: manylinux2014
 
           - os: macos-latest
-            build: cp311-macosx_x86_64
+            build: cp311 #-macosx_x86_64
           #- os: macos-latest
           #  build: cp310-macosx_x86_64
           #- os: macos-latest
