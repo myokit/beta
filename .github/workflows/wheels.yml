@@ -43,15 +43,6 @@ jobs:
           - os: macos-latest
             build: cp38-macosx_x86_64
 
-          - os: macos-latest
-            build: cp311-macosx_arm64
-          - os: macos-latest
-            build: cp310-macosx_arm64
-          - os: macos-latest
-            build: cp39-macosx_arm64
-          - os: macos-latest
-            build: cp38-macosx_arm64
-
           - os: windows-latest
             build: cp311-win_amd64
           - os: windows-latest
@@ -80,10 +71,11 @@ jobs:
         env:
           CIBW_BUILD: ${{ matrix.build }}
           CIBW_BUILD_VERBOSITY: 1
-          #CIBW_TEST_COMMAND: python {package}/tests_in_the_package
-          CIBW_TEST_COMMAND: python {project}/test/test.py
           CIBW_MANYLINUX_X86_64_IMAGE: ${{ matrix.manylinux }}
           #CIBW_MANYLINUX_I686_IMAGE: ${{ matrix.manylinux }}
+          CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
+          #CIBW_TEST_COMMAND: python {package}/tests_in_the_package
+          CIBW_TEST_COMMAND: python {project}/test/test.py
           #CIBW_BEFORE_ALL_WINDOWS
           CIBW_BEFORE_ALL_MACOS: sh .github/workflows/install-macos-dependencies.sh
           CIBW_BEFORE_ALL_LINUX: sh .github/workflows/install-centos-dependencies.sh
