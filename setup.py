@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import platform
 
-from setuptools import find_packages, setup, Extension
+from setuptools import find_namespace_packages, setup, Extension
 
 
 # Load text for description and license
