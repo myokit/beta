@@ -3,3 +3,4 @@ rm build dist -rf
 rm *.egg-info -rf
 rm myokit_beta/*.so -rf
 rm myokit_beta/__pycache__ -rf
+pip uninstall myokit_beta -y
