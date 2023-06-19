@@ -67,7 +67,7 @@ setup(
     name='myokit_beta',
 
     # Version
-    version='0.0.6',
+    version='0.0.7',
 
     # Description
     description='Trying out distribution of wheels etc and llvm',
