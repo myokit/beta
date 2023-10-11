@@ -1,3 +1,3 @@
 # Myokit beta
 
-Trying out a new way to do it.
+Testing cross-platform distribution with compiled code built on Github actions.
